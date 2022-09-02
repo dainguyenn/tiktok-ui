@@ -26,6 +26,8 @@ import Menu from '~/components/Popper/Menu';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import MenuItem from '~/components/Popper/Menu/MenuItem';
+import { MessageIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -113,7 +115,7 @@ function Header() {
                             </Button>
                             <Tippy content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -128,7 +130,7 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/89ed0581cedd4d514e0017f27cef450c~c5_100x100.jpeg?x-expires=1662188400&x-signature=F7APSnWHNE7nzHn1ATnStwoKOh0%3D"
                                 className={cx('user-avatar')}
                                 alt="NVV"
