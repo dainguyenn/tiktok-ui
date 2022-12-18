@@ -8,7 +8,7 @@ import MenuItem from './MenuItem';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+function Menu({ children, items = [], hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -35,6 +35,7 @@ function Menu({ children, items = [] }) {
             interactive
             offset={[11, 8]}
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
@@ -46,7 +47,7 @@ function Menu({ children, items = [] }) {
                                 }}
                             ></Header>
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}> {renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
